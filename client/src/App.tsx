@@ -1,3 +1,4 @@
+import { GoPlus } from "react-icons/go";
 import "./App.scss";
 
 export default function App() {
@@ -8,7 +9,12 @@ export default function App() {
         <div className="todo__theme-switch"></div>
       </header>
 
-      <div className="todo__add-todo"></div>
+      <div className="todo__add-todo">
+        <button type="button" className="todo__add-btn">
+          <GoPlus />
+        </button>
+        <input type="text" className="todo__add-new-todo" />
+      </div>
 
       <footer className="attribution">
         Challenge by
