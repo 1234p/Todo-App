@@ -8,19 +8,15 @@ export default function App() {
         <div className="todo__theme-switch"></div>
       </header>
 
-      <p>
-        Todo
-        {/* Add dynamic number */}
-        items left All Active Completed Clear Completed Drag and drop to reorder
-        list
-      </p>
+      <div className="todo__add-todo"></div>
 
       <footer className="attribution">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge">
           Frontend Mentor
         </a>
-        . Coded by <a href="#">Your Name Here</a>.
+        . Coded by
+        <a href="#">Your Name Here</a>.
       </footer>
     </div>
   );
