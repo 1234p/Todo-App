@@ -1,4 +1,4 @@
-import { GoPlus } from "react-icons/go";
+import { FaPlus } from "react-icons/fa";
 import "./App.scss";
 
 export default function App() {
@@ -11,10 +11,16 @@ export default function App() {
 
       <div className="todo__add-todo">
         <button type="button" className="todo__add-btn">
-          <GoPlus />
+          <FaPlus/>
         </button>
-        <input type="text" className="todo__add-new-todo" />
+        <input 
+          type="text" 
+          placeholder="Create a new Todo..."
+          className="todo__add-input" 
+        />
       </div>
+
+      <div className="todo__todo-list"></div>
 
       <footer className="attribution">
         Challenge by

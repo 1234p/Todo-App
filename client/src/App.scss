@@ -1,5 +1,5 @@
 /* Imports */
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
 
 /* CSS reset */
 *,
@@ -19,7 +19,7 @@ img {
 body {
   background: #181824 url("./assets/images/bg-desktop-dark.jpg") no-repeat;
   background-size: cover;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
   display: flex;
   align-items: center;
@@ -44,4 +44,40 @@ body {
 .todo__title {
   text-transform: uppercase;
   color: #fff;
+  letter-spacing: 8px;
+}
+
+.todo {
+
+  // Input For Adding a TODO
+  &__add-todo {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 5px;
+    background: var(--Navy-900)
+  }
+
+  &__add-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: none;
+    background: transparent;
+    border: 1px solid var(--Gray-600);
+    cursor: pointer;
+  }
+
+  &__add-input {
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+  }
 }

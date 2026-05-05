@@ -1,5 +1,19 @@
 :root {
+  --Navy-950: hsl(235, 21%, 11%);
+  --Navy-900: hsl(235, 24%, 19%);
+  --Purple-300: hsl(234, 39%, 85%);
+  --Purple-100-hover: hsl(236, 33%, 92%);
+  --Purple-600: hsl(235, 16%, 43%);
+  --Purple-700: hsl(233, 14%, 35%);
+  --Purple-800: hsl(237, 14%, 26%);
+  --Gray-600: hsl(236, 9%, 61%);
+
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
 }
