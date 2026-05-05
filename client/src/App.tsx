@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import "./App.scss";
 
 export default function App() {
+  const [isHover, setIsHover] = useState<boolean>(false);
+
   return (
     <div className="todo__content">
       <header className="todo__header">
@@ -10,13 +13,18 @@ export default function App() {
       </header>
 
       <div className="todo__add-todo">
-        <button type="button" className="todo__add-btn">
-          <FaPlus/>
+        <button
+          type="button"
+          className={`todo__add-btn ${isHover && "todo__add-btn--hover"}`}
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
+        >
+          {isHover && <FaPlus />}
         </button>
-        <input 
-          type="text" 
+        <input
+          type="text"
           placeholder="Create a new Todo..."
-          className="todo__add-input" 
+          className="todo__add-input"
         />
       </div>
 
