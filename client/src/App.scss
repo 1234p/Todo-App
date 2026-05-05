@@ -26,28 +26,41 @@ body {
   justify-content: center;
 }
 
-/* Styles */
-.todo__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-}
-
-/* Header Styles */
-.todo__header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.todo__title {
-  text-transform: uppercase;
-  color: #fff;
-  letter-spacing: 8px;
-}
-
 .todo {
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+  }
+
+  // Header Section
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    color: #f9f9f9;
+    letter-spacing: 8px;
+  }
+
+  &__theme-switch {
+    color: #f9f9f9;
+    
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   // Input For Adding a TODO
   &__add-todo {
     width: 100%;
