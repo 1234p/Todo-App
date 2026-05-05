@@ -1,22 +1,19 @@
 import { useState } from "react";
+import { useThemeToggleStore } from "./stores/useThemeToggleStore";
 import { FaPlus } from "react-icons/fa";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import "./App.scss";
 
-type theme = "light" | "dark";
-
 export default function App() {
   const [isHover, setIsHover] = useState<boolean>(false);
-  const [theme, setTheme] = useState<theme>("dark");
-
-  const handleToggleTheme = () =>
-    theme === "light" ? setTheme("dark") : setTheme("light");
+  const theme = useThemeToggleStore((s) => s.theme);
+  const toggleTheme = useThemeToggleStore((s) => s.toggleTheme);
 
   return (
-    <div className="todo__content">
+    <div className={`todo__content ${theme}`}>
       <header className="todo__header">
         <h1 className="todo__title">Todo</h1>
-        <div className="todo__theme-switch" onClick={handleToggleTheme}>
+        <div className="todo__theme-switch" onClick={toggleTheme}>
           {theme === "dark" ? <IoSunny /> : <IoMoon />}
         </div>
       </header>
