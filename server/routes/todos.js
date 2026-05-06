@@ -1,16 +1,9 @@
 const express = require("express");
-const MyTodosModel = require("../models/MyTodos");
+
+const { getTodos } = require("../controllers/myTodosController");
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
-  try {
-    const data = await MyTodosModel.find();
-    res.json(data);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Failed to fetch todos" });
-  }
-});
+router.get("/", getTodos);
 
 module.exports = router;

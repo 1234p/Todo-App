@@ -22,7 +22,7 @@ app.use(cors(corsConfig));
 // Routes
 const todosRouter = require("./routes/todos");
 
-app.use("/getMyTodos", todosRouter);
+app.use("/MyTodos", todosRouter);
 
 // Connect to MongoDB and start the server
 mongoose
