@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaTimes } from "react-icons/fa";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { getTodos, createTodo, toggleTodo } from "./api/todos";
 import "./App.scss";
@@ -93,13 +93,18 @@ export default function App() {
       <div className="todo__todo-list">
         {todos.slice(1).map(({ _id, todo, stage }) => (
           <div key={_id} className="todo__todo-item">
-            <input
-              type="checkbox"
-              className="todo__completedCheckbox"
-              checked={stage === "complete" ? true : false}
-              onChange={() => toggleTodoStage(_id)}
-            />
-            <div className="todo__todo-name">{todo}</div>
+            <div className="todo__todo-content">
+              <input
+                type="checkbox"
+                className="todo__completedCheckbox"
+                checked={stage === "complete" ? true : false}
+                onChange={() => toggleTodoStage(_id)}
+              />
+              <div className="todo__todo-name">{todo}</div>
+            </div>
+            <div className="todo__todo-remove">
+              <FaTimes />
+            </div>
           </div>
         ))}
       </div>
