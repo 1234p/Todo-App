@@ -131,4 +131,13 @@ body:has(.todo__content.dark) {
     outline: none;
     border: none;
   }
+
+  &__todo-list {
+    height: 500px;
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+    background: var(--Navy-900);
+    border-radius: 5px;
+    margin: 16px 0;
+  }
 }
