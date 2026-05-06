@@ -1,13 +1,16 @@
 import { useState } from "react";
-import { useThemeToggleStore } from "./stores/useThemeToggleStore";
 import { FaPlus } from "react-icons/fa";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import "./App.scss";
 
+type themeOptions = "light" | "dark";
+
 export default function App() {
   const [isHover, setIsHover] = useState<boolean>(false);
-  const theme = useThemeToggleStore((s) => s.theme);
-  const toggleTheme = useThemeToggleStore((s) => s.toggleTheme);
+  const [theme, setTheme] = useState<themeOptions>("dark");
+
+  const toggleTheme = () =>
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
 
   return (
     <div className={`todo__content ${theme}`}>
