@@ -4,7 +4,7 @@ const todoSchema = new mongoose.Schema({
   todo: String,
   stage: {
     type: String,
-    enum: ["incomplete", "active", "complete"],
+    enum: ["incomplete", "complete"],
     default: "incomplete",
   },
 });

@@ -34,7 +34,7 @@ export default function App() {
   const createNewTodo = async () => {
     if (!newTodo.trim()) return;
 
-    const todo = newTodo.trim()
+    const todo = newTodo.trim();
     const res = await createTodo(todo);
 
     if (!res.ok) {
@@ -81,6 +81,11 @@ export default function App() {
       <div className="todo__todo-list">
         {todos.slice(1).map((todo) => (
           <div className="todo__todo-item">
+            <input
+              type="checkbox"
+              className="todo__completedCheckbox"
+              checked={todo.stage === "active" ? true : false}
+            />
             <div className="todo__todo-name">{todo.todo}</div>
           </div>
         ))}
