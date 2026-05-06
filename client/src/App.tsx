@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaPlus, FaTimes } from "react-icons/fa";
 import { IoMoon, IoSunny } from "react-icons/io5";
-import { getTodos, createTodo, toggleTodo } from "./api/todos";
+import { getTodos, createTodo, toggleTodo, deleteTodo } from "./api/todos";
 import "./App.scss";
 
 type themeOptions = "light" | "dark";
@@ -58,6 +58,17 @@ export default function App() {
     setTodos((prev) => prev.map((t) => (t._id === id ? res.data : t)));
   };
 
+  const handleDeleteTodo = async (id: string) => {
+    const res = await deleteTodo(id);
+
+    if (!res.ok) {
+      console.log(res.error);
+      return;
+    }
+
+    setTodos((prev) => prev.filter((t) => t._id !== id));
+  };
+
   useEffect(() => {
     fetchTodos();
   }, []);
@@ -102,7 +113,10 @@ export default function App() {
               />
               <div className="todo__todo-name">{todo}</div>
             </div>
-            <div className="todo__todo-remove">
+            <div
+              className="todo__todo-remove"
+              onClick={() => handleDeleteTodo(_id)}
+            >
               <FaTimes />
             </div>
           </div>
