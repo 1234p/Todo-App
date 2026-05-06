@@ -15,15 +15,18 @@ const corsConfig = require("./config/cors.json");
 // Initialize Express App
 const app = express();
 
-// Connect to MongoDB
-mongoose.connect(MONGO_URL).then(() => {
-  console.log(`Successfully connected to Mongodb with the url: ${MONGO_URL}`);
-});
-
 // Middlewares
 app.use(express.json());
 app.use(cors(corsConfig));
 
-app.listen(PORT, () => {
-  console.log("server started");
-});
+// Connect to MongoDB and start the server
+mongoose
+  .connect(MONGO_URL)
+  .then(() => {
+    console.log(`Successfully connected to Mongodb with the url: ${MONGO_URL}`);
+
+    app.listen(PORT, () => {
+      console.log("server started");
+    });
+  })
+  .catch((err) => console.log(err));
