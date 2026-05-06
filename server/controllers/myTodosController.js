@@ -10,6 +10,20 @@ const getTodos = async (req, res) => {
   }
 };
 
+const createTodo = async (req, res) => {
+  try {
+    console.log("req.body:", req.body);
+    const { todo } = req.body;
+    const newTodo = new MyTodosModel({ todo });
+    const savedTodo = await newTodo.save();
+    res.status(201).json(savedTodo);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to create todo" });
+  }
+};
+
 module.exports = {
   getTodos,
+  createTodo,
 };

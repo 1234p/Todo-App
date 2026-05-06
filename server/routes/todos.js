@@ -1,9 +1,10 @@
 const express = require("express");
 
-const { getTodos } = require("../controllers/myTodosController");
+const { getTodos, createTodo } = require("../controllers/myTodosController");
 
 const router = express.Router();
 
 router.get("/", getTodos);
+router.post("/", createTodo);
 
 module.exports = router;
