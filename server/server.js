@@ -19,14 +19,21 @@ const app = express();
 app.use(express.json());
 app.use(cors(corsConfig));
 
+// Routes
+const todosRouter = require("./routes/todos");
+
+app.use("/getMyTodos", todosRouter);
+
 // Connect to MongoDB and start the server
 mongoose
   .connect(MONGO_URL)
   .then(() => {
-    console.log(`Successfully connected to Mongodb with the url: ${MONGO_URL}`);
+    console.log(`Successfully connected to Mongodb`);
 
     app.listen(PORT, () => {
       console.log("server started");
     });
   })
   .catch((err) => console.log(err));
+
+
