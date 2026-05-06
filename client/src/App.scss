@@ -21,10 +21,18 @@
     --Purple-700: hsl(233, 14%, 35%);
     --Purple-800: hsl(237, 14%, 26%);
     --Gray-600: hsl(236, 9%, 61%);
+
+    --text-color: hsl(0, 0%, 98%);
   }
 
   &.light {
-    
+    --Gray-50: hsl(0, 0%, 98%);
+    --Purple-300: hsl(234, 39%, 85%);
+    --Gray-300: hsl(233, 11%, 84%);
+    --Gray-600: hsl(236, 9%, 61%);
+    --Navy-850: hsl(235, 19%, 35%);
+
+    --text-color: hsl(235, 21%, 11%);
   }
 }
 
@@ -35,13 +43,17 @@ img {
 
 /* Global Styles */
 body {
-  background: #181824 url("./assets/images/bg-desktop-dark.jpg") no-repeat;
+  background: #fafafa url("./assets/images/bg-desktop-dark.jpg") no-repeat;
   background-size: cover;
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+body:has(.todo__content.dark) {
+  background-color: #181824;
 }
 
 .todo {
@@ -62,12 +74,12 @@ body {
 
   &__title {
     text-transform: uppercase;
-    color: #f9f9f9;
+    color: var(--text-color);
     letter-spacing: 8px;
   }
 
   &__theme-switch {
-    color: #f9f9f9;
+    color: var(--text-color);
 
     svg {
       width: 30px;
