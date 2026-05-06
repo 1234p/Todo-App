@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { IoMoon, IoSunny } from "react-icons/io5";
-import { getTodos, createTodo } from "./api/todos";
+import { getTodos, createTodo, toggleTodo } from "./api/todos";
 import "./App.scss";
 
 type themeOptions = "light" | "dark";
 
 interface myTodo {
+  _id: string;
   todo: string;
   stage: string;
 }
@@ -46,6 +47,17 @@ export default function App() {
     setNewTodo("");
   };
 
+  const toggleTodoStage = async (id: string) => {
+    const res = await toggleTodo(id);
+
+    if (!res.ok) {
+      console.log(res.error);
+      return;
+    }
+
+    setTodos((prev) => prev.map((t) => (t._id === id ? res.data : t)));
+  };
+
   useEffect(() => {
     fetchTodos();
   }, []);
@@ -79,14 +91,15 @@ export default function App() {
       </div>
 
       <div className="todo__todo-list">
-        {todos.slice(1).map((todo) => (
-          <div className="todo__todo-item">
+        {todos.slice(1).map(({ _id, todo, stage }) => (
+          <div key={_id} className="todo__todo-item">
             <input
               type="checkbox"
               className="todo__completedCheckbox"
-              checked={todo.stage === "active" ? true : false}
+              checked={stage === "complete" ? true : false}
+              onChange={() => toggleTodoStage(_id)}
             />
-            <div className="todo__todo-name">{todo.todo}</div>
+            <div className="todo__todo-name">{todo}</div>
           </div>
         ))}
       </div>
